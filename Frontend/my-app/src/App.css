@@ -1,0 +1,60 @@
+/* NAVBAR CSS */
+
+body{
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px 0px;
+  border-bottom: 1px solid;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+}
+
+nav > div > img{
+  width: 150px;
+  height: 30px;
+}
+
+nav > div{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+nav > div > a{
+  color: black;
+  text-decoration: none;
+}
+
+/* INPUTBAR CSS */
+.input{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: white;
+  padding: 10px 0px;
+  border-top: 1px solid;
+}
+
+.input > input{
+  font-size: 16px;
+  width: 50%;
+  padding: 20px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+}
+
+/* CONTENT CSS */
