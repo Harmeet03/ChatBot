@@ -4,6 +4,8 @@ body{
   font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
+  /* background-color: black;
+  color: white; */
 }
 
 nav{
@@ -57,4 +59,33 @@ nav > div > a{
   border-radius: 30px;
 }
 
-/* CONTENT CSS */
+.input > button{
+  border: none;
+  background-color: white;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* CHAT CONTENT CSS */
+.chat{
+  padding: 125px 0px 125px 0px;
+  margin: auto;
+  width: 775px;
+}
+
+.chat > .messages > .right{
+  text-align: right;
+  padding: 10px 0px;
+}
+
+.chat > .messages > .right > p{
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.chat > .messages > .left{
+  text-align: left;
+  padding: 10px 0px;
+}

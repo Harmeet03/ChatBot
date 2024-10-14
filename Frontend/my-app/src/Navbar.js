@@ -9,8 +9,8 @@ const Navbar = () => {
                     <img src={logo}/>
                 </div>
                 <div>
+                    <a href="#">Sign In</a>
                     <a href="#">Clear Chat</a>
-                    <a href="#">Contact</a>
                 </div>
             </nav>
         </>
