@@ -25,6 +25,9 @@ server.get('/', (req, res) => {
     res.send("Server is Live");
 });
 
+// SIGN UP BACKEND
+
+
 // SIGN IN BACKEND
 const bcrypt = require('bcrypt');
 const users = require('./userSchema');
