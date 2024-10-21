@@ -1,7 +1,9 @@
 import logo from "./BotName.png";
 import "./App.css"
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+    const Link = useNavigate();
     return(
         <>
             <nav>
@@ -9,7 +11,7 @@ const Navbar = () => {
                     <img src={logo}/>
                 </div>
                 <div>
-                    <a href="#">Sign In</a>
+                    <a onClick={() => Link("/login")} style={{cursor: "pointer"}}>Sign In</a>
                     <a href="#">Clear Chat</a>
                 </div>
             </nav>
