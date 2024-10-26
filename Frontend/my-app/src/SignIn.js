@@ -21,15 +21,18 @@ const SignIn = () => {
             });
 
             if(response.ok){
-                console.log("Response is OK.");
-                const data = await response.json();
+                console.log("Authorized");
+                Link("/");
+                localStorage.setItem("Client_Email", email);
+                localStorage.setItem("Login", "true");
             }
             else{
                 console.log("Invalid Email or Password!");
+                localStorage.setItem("Login", "false");
             }
         }
         catch(error){
-            console.error("Error fetching user data: ", error);
+            console.error(`Error fetching user data: ${error}`);
         }
     }
 
@@ -45,15 +48,12 @@ const SignIn = () => {
                     </span>
                     <h1> Sign In </h1>
                     <input type="text" placeholder="Enter Email" onChange={(e) => setEmail(e.target.value)}/>
-                    <input type="text" placeholder="Enter Password" onChange={(e) => setPassword(e.target.value)}/>
-                    <button> Done </button>
+                    <input type="password" placeholder="Enter Password" onChange={(e) => setPassword(e.target.value)}/>
+                    <button type="submit"> Done </button>
                     <a onClick={() => Link("/register")} style={{textAlign: "center", cursor: "pointer"}}>Register yourself</a>
                     <a onClick={() => Link("/")} style={{cursor: "pointer"}}>Back</a>
                 </form>
-            </div><span className="logo">
-                        <img src={logo} style={{width: "150px"}}/>
-                    </span>
-                    <a onClick={() => Link("/")} style={{cursor: "pointer"}}>Back</a>
+            </div>
         </>
     )
 }
