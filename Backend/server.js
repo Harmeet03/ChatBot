@@ -83,3 +83,31 @@ server.get("/register", async (req, res) => {
         console.error(`Unable to fetch: ${error}`);
     }
 });
+
+// CHATBOT NODE BACKEND (WHERE NODE WILL SEND DATA/MESSAGE TO PYTHON'S BACKEND/SERVER)
+const messages = require('./messageSchema');
+
+server.post("/chatbot", async (req, res) => {
+    try{
+        const content = await messages.create(
+            {
+                message: req.body.message
+            }
+        );
+        res.json(content);
+        console.log("Message recieved");
+    }
+    catch(e){
+        console.log(`Unable to recieve message: ${e}`);
+    }
+});
+
+server.get("/chatbot", async (req, res) => {
+    try{
+        const message = await messages.find({});
+        res.json(message);
+    }
+    catch(e){
+        console.log(`Unable to get message: ${e}`);
+    }
+});
