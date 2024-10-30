@@ -87,7 +87,11 @@ server.get("/register", async (req, res) => {
 // CHATBOT NODE BACKEND (WHERE NODE WILL SEND DATA/MESSAGE TO PYTHON'S BACKEND/SERVER)
 const messages = require('./messageSchema');
 
+const axios = require('axios')
+
 server.post("/chatbot", async (req, res) => {
+    const { message } = req.body;
+
     try{
         const content = await messages.create(
             {
@@ -96,6 +100,9 @@ server.post("/chatbot", async (req, res) => {
         );
         res.json(content);
         console.log("Message recieved");
+
+        const response = await axios.post("http://localhost:5001/chatbot", { message });
+        res.json(response.data)
     }
     catch(e){
         console.log(`Unable to recieve message: ${e}`);
