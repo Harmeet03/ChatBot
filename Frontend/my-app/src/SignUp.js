@@ -1,6 +1,6 @@
 import logo from "./BotName.png";
 import "./App.css"
-import bg from "./bg.jpg"
+import bg from "./bg.png"
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 
