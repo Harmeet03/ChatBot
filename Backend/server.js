@@ -48,7 +48,6 @@ server.post("/register", async (req, res) => {
 });
 
 // SIGN IN BACKEND
-
 server.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
@@ -81,40 +80,5 @@ server.get("/register", async (req, res) => {
     }
     catch(error){
         console.error(`Unable to fetch: ${error}`);
-    }
-});
-
-// CHATBOT NODE BACKEND (WHERE NODE WILL SEND DATA/MESSAGE TO PYTHON'S BACKEND/SERVER)
-const messages = require('./messageSchema');
-
-const axios = require('axios')
-
-server.post("/chatbot", async (req, res) => {
-    const { message } = req.body;
-
-    try{
-        const content = await messages.create(
-            {
-                message: req.body.message
-            }
-        );
-        res.json(content);
-        console.log("Message recieved");
-
-        const response = await axios.post("http://localhost:5001/chatbot", { message });
-        res.json(response.data)
-    }
-    catch(e){
-        console.log(`Unable to recieve message: ${e}`);
-    }
-});
-
-server.get("/chatbot", async (req, res) => {
-    try{
-        const message = await messages.find({});
-        res.json(message);
-    }
-    catch(e){
-        console.log(`Unable to get message: ${e}`);
     }
 });

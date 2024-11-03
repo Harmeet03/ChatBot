@@ -2,7 +2,7 @@ body{
   font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(37, 37, 37);
   /* color: white; */
 }
 
@@ -15,7 +15,7 @@ nav{
   align-items: center;
   position: fixed;
   width: 100%;
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(37, 37, 37);
 }
 
 nav > div > img{
@@ -30,7 +30,12 @@ nav > div{
 }
 
 nav > div > a{
-  color: black;
+  color: white;
+  text-decoration: none;
+}
+
+nav > div > span{
+  color: white;
   text-decoration: none;
 }
 
@@ -44,7 +49,7 @@ nav > div > a{
   position: fixed;
   width: 100%;
   bottom: 0;
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(37, 37, 37);
   padding: 10px 0px;
 }
 
@@ -53,8 +58,14 @@ nav > div > a{
   width: 70%;
   max-width: 800px;
   padding: 20px 10px;
-  border: 1px solid;
+  border: 1px solid rgb(37, 37, 37);
   border-radius: 30px;
+  background-color: rgb(60, 60, 60);
+  color: white;
+}
+
+.input > input:focus{
+  outline: none;
 }
 
 .input > button{
@@ -83,7 +94,8 @@ nav > div > a{
 }
 
 .chat > .messages > .right > p{
-  background-color: rgb(238, 238, 238);
+  background-color: rgb(60, 60, 60);
+  color: white;
   padding: 10px 20px;
   border-radius: 20px;
   display: inline-block;
@@ -92,12 +104,14 @@ nav > div > a{
 .chat > .messages > .left{
   text-align: left;
   padding: 10px 0px;
+  color: white;
 }
 
 /* SIGN IN CSS */
 .login{
   display: flex;
   flex-direction: row;
+  color: white;
 }
 
 .login > .left{
@@ -119,7 +133,13 @@ form{
 form > input{
   padding: 10px 40px;
   font-size: 16px;
+  background-color: rgb(60, 60, 60);
+  outline: none;
+  border: none;
+  color: white;
 }
+
+
 
 form > button{
   padding: 10px 40px;

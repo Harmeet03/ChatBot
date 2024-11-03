@@ -23,7 +23,6 @@ const Navbar = () => {
                             <a onClick={() => Link("/login")} style={{cursor: "pointer"}}>Sign In</a>
                         )
                     }
-                    <a href="#">Clear Chat</a>
                 </div>
             </nav>
         </>

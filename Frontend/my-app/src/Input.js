@@ -6,8 +6,9 @@ const InputBar = () => {
   const [message, setText] = useState('');
 
   const Send = async (e) => {
+    e.preventDefault();
     try{
-      const response = await fetch(`http://localhost:4000/chatbot`, {
+      const response = await fetch(`http://localhost:5001/chatbot`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -18,6 +19,7 @@ const InputBar = () => {
       if(response.ok){
         console.log("Message sent");
         setText('');
+        window.location.reload();
       }
       else{
         console.log("Message is empty");
@@ -31,7 +33,7 @@ const InputBar = () => {
     return (
       <>
         <form className="input" onSubmit={Send}>
-          <input name="message" type="textbox" placeholder="Message ROBOchaT" onChange={(e) => setText(e.target.value)}/>
+          <input name="message" type="textbox" placeholder="Message ROBOchaT" value={message} onChange={(e) => setText(e.target.value)}/>
           <button name="submit" type="submit"><img src={send}/></button>
         </form>
       </>

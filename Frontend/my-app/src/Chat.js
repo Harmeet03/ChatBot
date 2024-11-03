@@ -2,8 +2,7 @@ import { useState, useEffect } from "react"
 import "./App.css"
 
 const ChatContent = () => {
-    const [userMessage, setUserMessage] = useState([]);
-    const [botMessage, setBotMessage] = useState([]);
+    const [message, setMessage] = useState([]);
 
     useEffect (() => {
         Display();
@@ -11,10 +10,10 @@ const ChatContent = () => {
 
     const Display = async () => {
         try{
-            const response = await fetch(`http://localhost:4000/chatbot`);
+            const response = await fetch(`http://localhost:5001/chatbots`);
             if(response.ok){
-                const message = await response.json();
-                setUserMessage(message);
+                const messages = await response.json();
+                setMessage(messages);
             }
         }
         catch(e){
@@ -25,18 +24,18 @@ const ChatContent = () => {
     return(
         <>
             <div className="chat">
-                <div className="messages">
-                    {
-                        userMessage.map((text, index) => (
+                {
+                    message.map((text, index) => (
+                        <div className="messages">
                             <div className="right" key={index}>
-                                <p>{text.message}</p>
+                                <p>{text.user}</p>
                             </div>
-                        ))
-                    }
-                    <div className="left">
-                        <p></p>
-                    </div>
-                </div>
+                            <div className="left">
+                                <p>{text.bot}</p>
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
         </>
     )
