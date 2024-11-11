@@ -25,9 +25,9 @@ const ChatContent = () => {
         <>
             <div className="chat">
                 {
-                    message.map((text, index) => (
+                    message.map((text) => (
                         <div className="messages">
-                            <div className="right" key={index}>
+                            <div className="right">
                                 <p>{text.user}</p>
                             </div>
                             <div className="left">

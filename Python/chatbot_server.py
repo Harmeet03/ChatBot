@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-import json
 import requests
 import os
 from dotenv import load_dotenv
