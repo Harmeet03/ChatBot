@@ -10,6 +10,7 @@ server = Flask(__name__)
 CORS(server, resources={r"/chatbot": {"origins": "https://robochatgpt.netlify.app"}, r"/chatbots": {"origins": "https://robochatgpt.netlify.app"}})
 
 api_key = os.getenv("HUGGINGFACE_API_KEY")
+PORT = os.getenv("PORT")
 
 chat_history = []
 
@@ -59,4 +60,4 @@ def chatbots():
     return jsonify(chat_history)
 
 if __name__ == '__main__':
-    server.run(host = 'localhost', port = 5001)
+    server.run(host = 'localhost', port = PORT)
