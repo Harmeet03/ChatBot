@@ -10,7 +10,7 @@ MongoDB();
 const connection = {
     origin: 'https://robochatgpt.netlify.app',
     credentials: true
-}d
+}
 
 const server = express();
 server.use(cors(connection));
