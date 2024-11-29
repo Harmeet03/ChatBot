@@ -10,7 +10,7 @@ const ChatContent = () => {
 
     const Display = async () => {
         try{
-            const response = await fetch(`http://localhost:5001/chatbots`);
+            const response = await fetch(`https://chatbot-python-c6nb.onrender.com/chatbots`);
             if(response.ok){
                 const messages = await response.json();
                 setMessage(messages);

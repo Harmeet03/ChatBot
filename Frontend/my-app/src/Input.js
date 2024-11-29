@@ -8,7 +8,7 @@ const InputBar = () => {
   const Send = async (e) => {
     e.preventDefault();
     try{
-      const response = await fetch(`http://localhost:5001/chatbot`, {
+      const response = await fetch(`https://chatbot-python-c6nb.onrender.com/chatbot`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
