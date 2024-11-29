@@ -11,9 +11,11 @@ const SignIn = () => {
     const [password, setPassword] = useState(''); 
 
     const sendData = async (e) => {
+        let connection = document.getElementById('connection');
+        let error = document.getElementById('error');
         e.preventDefault();
         try{
-            const response = await fetch('http://localhost:4000/login', {
+            const response = await fetch('https://chatbot-wl3s.onrender.com/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -28,12 +30,16 @@ const SignIn = () => {
                 localStorage.setItem("Login", "true");
             }
             else{
-                console.log("Invalid Email or Password!");
-                localStorage.setItem("Login", "false");
+                console.error("Invalid Email or Password!");
+                localStorage.removeItem("Login");
+                error.style.display = 'flex';
+                connection.style.display = 'none'
             }
         }
-        catch(error){
-            console.error(`Error fetching user data: ${error}`);
+        catch(e){
+            console.error(`Error fetching user data: ${e}`);
+            connection.style.display = 'flex';
+            error.style.display = 'none'
         }
     }
 
@@ -44,6 +50,12 @@ const SignIn = () => {
                     <img src={bg} className="bg"/>
                 </div>
                 <form className="right" onSubmit={sendData}>
+                    <div id="error">
+                        <p> Invalid Email or Password! </p>
+                    </div>
+                    <div id="connection">
+                        <p> No Internet Connection! </p>
+                    </div>
                     <span className="logo">
                         <img src={logo} style={{width: "150px"}}/>
                     </span>

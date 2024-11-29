@@ -13,7 +13,7 @@ const SignUp = () => {
     const sendData = async (e) => {
         e.preventDefault();
         try{
-            const response = await fetch('http://localhost:4000/register', {
+            const response = await fetch('https://chatbot-wl3s.onrender.com/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -31,6 +31,8 @@ const SignUp = () => {
         }
         catch(error){
             console.error(`Error registering user: ${error}`);
+            let connection = document.getElementById('connection');
+            connection.style.display = 'flex'
         }
     }
 
@@ -41,6 +43,9 @@ const SignUp = () => {
                     <img src={bg} className="bg"/>
                 </div>
                 <form className="right" onSubmit={sendData}>
+                    <div id="connection">
+                        <p> No Internet Connection! </p>
+                    </div>
                     <span className="logo">
                         <img src={logo} style={{width: "150px"}}/>
                     </span>

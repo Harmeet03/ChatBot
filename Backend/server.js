@@ -8,9 +8,9 @@ const MongoDB = require('./MongoDB')
 MongoDB();
 
 const connection = {
-    origin: 'http://localhost:3000',
+    origin: 'https://robochatgpt.netlify.app',
     credentials: true
-}
+}d
 
 const server = express();
 server.use(cors(connection));
@@ -65,6 +65,7 @@ server.post("/login", async (req, res) => {
             }
         }
         else{
+            res.status(401).json({ message: "Unauthorized" });
             console.log('Email Unauthorized');
         }
     }

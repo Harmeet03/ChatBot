@@ -21,10 +21,12 @@ const InputBar = () => {
         setText('');
         window.location.reload();
       }
+
       else{
         console.log("Message is empty");
       }
     }
+    
     catch(e){
       console.log(`Error while sending: ${e}`);
     }
