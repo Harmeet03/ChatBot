@@ -24,8 +24,8 @@ def chatbot():
     user_message = data['message']
 
     try:
-        url = f"https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill"
-        # url = f"https://api-inference.huggingface.co/models/gpt2"
+        # url = f"https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill"
+        url = f"https://api-inference.huggingface.co/models/gpt2"
 
         headers = {
             "Authorization": f"Bearer {api_key}",
