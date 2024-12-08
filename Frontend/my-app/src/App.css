@@ -5,6 +5,25 @@ body{
   background-color: rgb(37, 37, 37);
 }
 
+/* ERROR CSS */
+.error{
+  color: white;
+  padding: 20px 40px;
+}
+
+.error > div{
+  margin: auto;
+  height: 70vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.error > div > h1{
+  font-size: 40px;
+}
+
 /* NAVBAR CSS */
 nav{
   display: flex;
