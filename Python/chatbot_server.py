@@ -7,7 +7,15 @@ from flask_cors import CORS
 load_dotenv()
 
 server = Flask(__name__)
-CORS(server, resources={r"/chatbot": {"origins": "https://robochatgpt.netlify.app"}, r"/chatbots": {"origins": "https://robochatgpt.netlify.app"}})
+
+CORS(server, resources = {
+    r"/chatbot": {
+        "origins": "https://robochatgpt.netlify.app"
+    }, 
+    r"/chatbots": {
+        "origins": "https://robochatgpt.netlify.app"
+    }
+})
 
 api_key = os.getenv("HUGGINGFACE_API_KEY")
 PORT = os.getenv("PORT")
